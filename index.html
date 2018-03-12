@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,11 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="./assets/style/style.css">
   <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+  
+
   <title>TRAIN SCHEDULE</title>
 </head>
+
 <body class="container">
   <h1 class="jumbotron text-center border">
     TRAIN SCHEDULE
@@ -24,39 +28,40 @@
   <div class="col-md-12">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">ADD A TRAIN</h3>
+        <h3 class="panel-title text-center">ADD A TRAIN</h3>
       </div>
       <div class="panel-body">
-  
+
         <!-- Sign-up Form (note the various input "types")-->
         <form role="form">
           <div class="form-group">
-            <label for="name-input">TRAIN NAME:</label>
-            <input class="form-control" id="name-input" type="text">
+            <label for="train-input">TRAIN NAME:</label>
+            <input class="form-control" id="train-input" type="text">
           </div>
           <div class="form-group">
-            <label for="email-input">DESTINATION:</label>
-            <input class="form-control" id="email-input" type="text">
+            <label for="destination-input">DESTINATION:</label>
+            <input class="form-control" id="destination-input" type="text">
           </div>
           <div class="form-group">
-            <label for="age-input">FIRST TRAIN TIME(HH:MM-MILITARY TIME):</label>
-            <input class="form-control" id="age-input" type="number">
+            <label for="time-input">FIRST TRAIN TIME(HH:MM-MILITARY TIME):</label>
+            <input class="form-control" id="time-input" type="military-time">
           </div>
           <div class="form-group">
-            <label for="comment-input">FREQUENCY(MIN):</label>
-            <input class="form-control" id="comment-input" type="number"></input>
+            <label for="frequency-input">FREQUENCY(MIN):</label>
+            <input class="form-control" id="frequency-input" type="number"></input>
           </div>
-          <button class="btn btn-default" id="add-user" type="submit">SUBMIT</button>
+          <button class="btn btn-default" id="add-train" type="submit">SUBMIT</button>
         </form>
       </div>
     </div>
   </div>
 
+<script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script src="./javascript/app.js"></script>
+
   
 
-
-  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
-
-  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 </body>
+
 </html>
