@@ -1,0 +1,34 @@
+body {
+  font-family: 'Work Sans', sans-serif;
+}
+
+.jumbotron {
+  background: url("https://pics.clipartpng.com/Modern_Train_PNG_Clipart-422.png")no-repeat;
+  background-size: 45% auto;
+}
+
+.currentSchedule {
+  background-color: #44566d;
+  color: white;
+}
+
+@media screen and (min-width: 100px) {
+  .jumbotron {
+    font-size: 18px;
+    height: 30px;
+  }
+}
+
+@media screen and (min-width: 425px) {
+  .jumbotron {
+    height: 50px;
+    font-size: 25px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .jumbotron {
+    height: 50px;
+    font-size: 40px;
+  }
+}
