@@ -3,7 +3,7 @@ body {
 }
 
 .jumbotron {
-  background: url("https://pics.clipartpng.com/Modern_Train_PNG_Clipart-422.png")no-repeat;
+  margin-top: 20px;
   background-size: 45% auto;
 }
 
@@ -12,7 +12,11 @@ body {
   color: white;
 }
 
-@media screen and (min-width: 100px) {
+.panel-title {
+  font-size: 20px;
+}
+
+/* @media screen and (min-width: 100px) {
   .jumbotron {
     font-size: 18px;
     height: 30px;
@@ -31,4 +35,4 @@ body {
     height: 50px;
     font-size: 40px;
   }
-}
+} */
