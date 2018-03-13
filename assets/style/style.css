@@ -1,32 +1,45 @@
 body {
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Allerta Stencil', sans-serif;
   margin: 10px;
+  background: black;
 }
 
 .jumbotron {
   margin-top: 20px;
+  background: black;
+  color: gray;
 }
 
 .currentScheduleHeader {
-  background-color: #44566d;
-  color: white;
+  background-color: #fdfc80;
+  color: black;
 }
 
 .btn {
-  background-color: #44566d;
+  background-color: red;
   color: white;
 }
 
 .panel-title {
   font-size: 20px;
+  color: grey;
 }
 
 .train-info {
   text-align: center;
+  color: #4694e7
 }
 
 th {
   padding: 20px;
+}
+
+.trainPic {
+  width: 60%;
+}
+
+label {
+  color: #fafafc;
 }
 
 @media screen and (max-width: 503px) {
