@@ -31,8 +31,27 @@ th {
 
 @media screen and (max-width: 503px) {
   .train-info {
-  font-size: 10px;
-}
+    font-size: 10px;
+  }
 }
 
+@media screen and (max-width: 375px) {
+  .trainPic {
+    width: 100%;
+  }
+  .jumbotron {
+    font-size: 30px;
+  }
+}
 
+@media screen and (max-width: 320px) {
+  .trainPic {
+    width: 100%;
+  }
+  .jumbotron {
+    font-size: 30px;
+  }
+  .train-info {
+    font-size: 7px;
+  }
+}
