@@ -29,6 +29,7 @@ $("#add-train").on("click", function () {
     frequency: frequency,
 
   });
+  $(".form-control").val("");
 });
 
 database.ref().on("value", function (snapshot) {
