@@ -7,7 +7,7 @@ body {
   margin-top: 20px;
 }
 
-.currentSchedule {
+.currentScheduleHeader {
   background-color: #44566d;
   color: white;
 }
@@ -19,6 +19,20 @@ body {
 
 .panel-title {
   font-size: 20px;
+}
+
+.train-info {
+  text-align: center;
+}
+
+th {
+  padding: 20px;
+}
+
+@media screen and (max-width: 503px) {
+  .train-info {
+  font-size: 10px;
+}
 }
 
 
