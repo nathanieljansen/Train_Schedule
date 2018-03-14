@@ -10,32 +10,44 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-var trainName = "";
-var destination = "";
-var trainTime = "";
-var frequency = "";
-
 $("#add-train").on("click", function () {
-  alert("I was clicked")
   event.preventDefault();
-  trainName = $("#train-input").val().trim();
-  destination = $("#destination-input").val().trim();
-  trainTime = $("#time-input").val().trim();
-  frequency = $("#frequency-input").val().trim();
-  database.ref().set({
+  alert("Train Added")
+  var trainName = $("#train-input").val().trim();
+  var destination = $("#destination-input").val().trim();
+  var trainTime = $("#time-input").val().trim();
+  var frequency = $("#frequency-input").val().trim();
+  $(".form-control").val("");
+  var newTrain = {
+    trainName: trainName,
+    destination: destination,
+    trainTime: trainTime,
+    frequency: frequency
+  };
+
+  database.ref().push({
     trainName: trainName,
     destination: destination,
     trainTime: trainTime,
     frequency: frequency,
-
   });
-  $(".form-control").val("");
-});
+  
 
-database.ref().on("value", function (snapshot) {
-  console.log(snapshot.val());
-  console.log(snapshot.val().trainName);
-  console.log(snapshot.val().destination);
-  console.log(snapshot.val().trainTime);
-  console.log(snapshot.val().frequency);
+
+
+  database.ref().push(newTrain);
+
+  console.log(newTrain.trainName);
+  console.log(newTrain.destination);
+  console.log(newTrain.trainTime);
+  console.log(newTrain.frequency);
+  
+
+  var row = $("<tr>");
+  row.append($("<td>" + trainName + "</td>"))
+  row.append($("<td>" + destination + "</td>"))
+  row.append($("<td>" + trainTime + "<td>"))
+  row.append($("<td>" + frequency +"</td>"))
+  // row.append($("<td>Text-1</td>"))
+  $(".table").append(row);
 });
