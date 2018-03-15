@@ -40,7 +40,7 @@ $(function () {
     row.append($("<td>" + childSnapshot.val().trainName + "</td>"))
     row.append($("<td>" + childSnapshot.val().destination + "</td>"))
     row.append($("<td>" + childSnapshot.val().frequency + "</td>"))
-    row.append($("<td>" + childSnapshot.val().trainTime + "</td>"))
+    row.append($("<td>" + "I THINK MATH GOES HERE TOO" + "</td>"))
     row.append($("<td>" + "MATH GOES HERE" + "<td>"))
     // row.append($("<td>" +  + "</td>"))
     $(".table").append(row);
