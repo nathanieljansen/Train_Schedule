@@ -1,3 +1,5 @@
+$(function(){
+
 var config = {
   apiKey: "AIzaSyCaKdTcPkr96n9jc0k9awI23KdXr60L2hs",
   authDomain: "train-schedule-30eeb.firebaseapp.com",
@@ -9,6 +11,8 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
+
+
 
 $("#add-train").on("click", function () {
   event.preventDefault();
@@ -33,21 +37,27 @@ $("#add-train").on("click", function () {
   });
   
 
+  // database.ref().push(newTrain);
 
+  
+  // console.log(childSnapshot.val().trainName)
+  })
+  database.ref().on("child_added", function (childSnapshot) {
+    var row = $("<tr>");
+    row.append($("<td>" + childSnapshot.val().trainName + "</td>"))
+    row.append($("<td>" + childSnapshot.val().destination + "</td>"))
+    row.append($("<td>" + childSnapshot.val().trainTime + "<td>"))
+    row.append($("<td>" + childSnapshot.val().frequency + "</td>"))
+    $(".table").append(row);
 
-  database.ref().push(newTrain);
-
-  console.log(newTrain.trainName);
-  console.log(newTrain.destination);
-  console.log(newTrain.trainTime);
-  console.log(newTrain.frequency);
+  // console.log(newTrain.trainName);
+  // console.log(newTrain.destination);
+  // console.log(newTrain.trainTime);
+  // console.log(newTrain.frequency);
   
 
-  var row = $("<tr>");
-  row.append($("<td>" + trainName + "</td>"))
-  row.append($("<td>" + destination + "</td>"))
-  row.append($("<td>" + trainTime + "<td>"))
-  row.append($("<td>" + frequency +"</td>"))
+  
   // row.append($("<td>Text-1</td>"))
-  $(".table").append(row);
+  
 });
+})

@@ -27,7 +27,7 @@ body {
 
 .train-info {
   text-align: center;
-  color: #4694e7
+  color: white;
 }
 
 th {
@@ -41,6 +41,7 @@ th {
 label {
   color: #fafafc;
 }
+
 
 @media screen and (max-width: 503px) {
   .train-info {
