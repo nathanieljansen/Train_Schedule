@@ -11,6 +11,9 @@ $(function () {
   firebase.initializeApp(config);
 
   var database = firebase.database();
+  var currentTime = moment();
+  console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+  
 
   $("#add-train").on("click", function () {
     event.preventDefault();
@@ -42,8 +45,8 @@ $(function () {
     row.append($("<td>" + childSnapshot.val().frequency + "</td>"))
     row.append($("<td>" + "I THINK MATH GOES HERE TOO" + "</td>"))
     row.append($("<td>" + "MATH GOES HERE" + "<td>"))
-    // row.append($("<td>" +  + "</td>"))
     $(".table").append(row);
 
   });
+  
 })
