@@ -17,11 +17,19 @@ $(function () {
   var currentTime = moment();
   console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
 
+  // function validateForm() {
+  //   var isValid = true;
+  //   $('.form-control').each(function () {
+  //     if ($(this).val() === '')
+  //       isValid = false;
+  //   });
+  //   return isValid;
+  // }
 
 
   $("#add-train").on("click", function () {
     event.preventDefault();
-    
+    // validateForm();
     trainName = $("#train-input").val().trim();
     destination = $("#destination-input").val().trim();
     trainTime = $("#time-input").val().trim();
