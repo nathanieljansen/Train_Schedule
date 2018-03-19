@@ -1,3 +1,6 @@
+
+
+
 $(function () {
 
   var config = {
@@ -13,40 +16,60 @@ $(function () {
   var database = firebase.database();
   var currentTime = moment();
   console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
-  
+
+
 
   $("#add-train").on("click", function () {
     event.preventDefault();
-    alert("Train Added")
-    var trainName = $("#train-input").val().trim();
-    var destination = $("#destination-input").val().trim();
-    var trainTime = $("#time-input").val().trim();
-    var frequency = $("#frequency-input").val().trim();
-    $(".form-control").val("");
+    
+    trainName = $("#train-input").val().trim();
+    destination = $("#destination-input").val().trim();
+    trainTime = $("#time-input").val().trim();
+    frequency = $("#frequency-input").val().trim();
+
+
     var newTrain = {
       trainName: trainName,
       destination: destination,
       trainTime: trainTime,
-      frequency: frequency
+      frequency: frequency,
     };
 
-    database.ref().push({
-      trainName: trainName,
-      destination: destination,
-      trainTime: trainTime,
-      frequency: frequency,
-    });
+    database.ref().push(newTrain)
 
-  })
-  database.ref().on("child_added", function (childSnapshot) {
-    var row = $("<tr>");
-    row.append($("<td>" + childSnapshot.val().trainName + "</td>"))
-    row.append($("<td>" + childSnapshot.val().destination + "</td>"))
-    row.append($("<td>" + childSnapshot.val().frequency + "</td>"))
-    row.append($("<td>" + "I THINK MATH GOES HERE TOO" + "</td>"))
-    row.append($("<td>" + "MATH GOES HERE" + "<td>"))
-    $(".table").append(row);
-
+    alert("Train Added");
+    $(".form-control").val("");
   });
-  
+
+  database.ref().on("child_added", function (childSnapshot, prevChildKey) {
+
+    console.log(childSnapshot);
+    console.log(childSnapshot.val());
+
+    var trainName = childSnapshot.val().trainName;
+    var destination = childSnapshot.val().destination;
+    var trainTime = childSnapshot.val().trainTime;
+    var frequency = childSnapshot.val().frequency;
+
+    var firstTimeConverted = moment(trainTime, "HH:mm").subtract(1, "years");
+    console.log(firstTimeConverted);
+    var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+    console.log("DIFFERENCE IN TIME: " + diffTime);
+    var tRemainder = diffTime % frequency;
+    console.log(tRemainder);
+    var tMinutesTillTrain = frequency - tRemainder;
+    console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+    var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+    console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+
+
+    var row = $("<tr>");
+    row.append($("<td>" + trainName + "</td>"))
+    row.append($("<td>" + destination + "</td>"))
+    row.append($("<td>" + frequency + "</td>"))
+    row.append($("<td>" + moment(nextTrain).format("hh:mm") + "</td>"))
+    row.append($("<td>" + tMinutesTillTrain + "<td>"))
+    $(".table").append(row);
+  });
+
 })
